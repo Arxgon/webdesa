@@ -7,10 +7,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
+
+class User extends Authenticatable implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+
+    use HasFactory;
+    use Notifiable;
+    use HasRoles;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +30,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'avatar',
+        'bio'
     ];
 
     /**
@@ -45,4 +57,49 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('avatars')
+            ->singleFile();
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this
+            ->addMediaConversion('thumb')
+            ->width(200)
+            ->height(200)
+            ->nonQueued();
+    }
+
+    public function getAvatarThumbUrlAttribute(): ?string
+    {
+        $media = $this->getFirstMedia('avatars');
+        return $media ? $media->getUrl('thumb') : null;
+    }
+
+    public function getAvatarUrlAttribute(): ?string
+    {
+        $media = $this->getFirstMedia('avatars');
+        return $media ? $media->getUrl() : null;
+    }
+
 }
