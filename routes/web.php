@@ -1,20 +1,28 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\VillageProfileController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/history', [VillageProfileController::class, 'history'])->name('history');
+Route::get('/profile-area', [VillageProfileController::class, 'profileArea'])->name('profile-area');
+Route::get('/profile-potention', [VillageProfileController::class, 'profilePotention'])->name('profile-potention');
+Route::get('/development', [VillageProfileController::class, 'development'])->name('development');
+Route::get('/stall', [VillageProfileController::class, 'stall'])->name('stall');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/lang/{locale}', function ($locale) {
+    // Hanya izinkan id & en
+    if (! in_array($locale, ['id', 'en'])) {
+        abort(404);
+    }
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+    Session::put('locale', $locale);
+    App::setLocale($locale);
 
-require __DIR__.'/auth.php';
+    return redirect()->back();
+})->name('lang.switch');
+
+?>
