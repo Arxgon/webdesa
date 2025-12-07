@@ -27,7 +27,7 @@ class VillageIdentity extends Model implements HasMedia
         $this->addMediaCollection('office_photo')->singleFile();
     }
 
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('thumb')->width(400)->height(300)->nonQueued();
         $this->addMediaConversion('square')->fit('crop', 512, 512)->nonQueued();

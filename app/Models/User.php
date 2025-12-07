@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +14,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 
-class User extends Authenticatable implements HasMedia
+class User extends Authenticatable implements HasMedia, FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
 
@@ -81,7 +83,7 @@ class User extends Authenticatable implements HasMedia
             ->singleFile();
     }
 
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaConversions(?Media $media = null): void
     {
         $this
             ->addMediaConversion('thumb')
@@ -100,6 +102,17 @@ class User extends Authenticatable implements HasMedia
     {
         $media = $this->getFirstMedia('avatars');
         return $media ? $media->getUrl() : null;
+    }
+
+    public function canAccessFilament(): bool
+    {
+        // Example: Only allow users from a specific domain with a verified email
+        return str_ends_with($this->email, '@admin.com');
+    }
+
+    public function canAccessPanel(\Filament\Panel $panel): bool
+    {
+        return str_ends_with($this->email, '@admin.com');
     }
 
 }
