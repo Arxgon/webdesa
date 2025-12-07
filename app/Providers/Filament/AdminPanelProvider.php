@@ -61,7 +61,11 @@ class AdminPanelProvider extends PanelProvider
                 NavigationItem::make()
                     ->label('Halaman Testing Landing Page')
                     ->url('/test/desa', shouldOpenInNewTab: true)
-                    ->group('Dev')
+                    ->group('Dev'),
+                NavigationItem::make()
+                    ->label('Halaman Dokumentasi Controller')
+                    ->url('/test/docs', shouldOpenInNewTab: true)
+                    ->group('Dev'),
             ])
             ->middleware([
                 EncryptCookies::class,
