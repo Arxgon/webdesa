@@ -39,3 +39,4 @@ Route::name('articles.')->group(function () {
 });
 
 Route::get('/test/desa', [VillageIdentityController::class, 'landing'])->name('villageidentity.landing');
+Route::view('/test/docs', 'test.docs')->name('docs.test');

@@ -22,7 +22,7 @@
 
 ## Rute utama
 - Publik artikel (test): `/test`, `/test/artikel/{slug}`, `/test/kategori/{slug}`, `/test/tag/{slug}`, `/cari`.
-- Landing identitas desa: `/desa`.
+- Landing identitas desa (test): `/test/desa`.
 - Filament admin (default): `/admin`.
 
 ## Next tasks
