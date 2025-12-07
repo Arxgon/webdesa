@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AdminUserSeeder::class);
         $this->call(PostSeeder::class);
-        $this->call(VillageIdentitySeeder::class);
+        // $this->call(VillageIdentitySeeder::class);
+        $this->call(VillageIdentityLiangAnggangSeeder::class);
         // User::factory(10)->create();
 
         User::factory()->create([

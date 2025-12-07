@@ -24,7 +24,11 @@ class CommentResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ChatBubbleLeftRight;
 
     protected static ?string $navigationLabel = 'Komentar';
+
+    protected static ?int $navigationSort = 3;
+
     protected static string | UnitEnum | null $navigationGroup = 'Manajemen Artikel';
+
     public static function form(Schema $schema): Schema
     {
         return CommentForm::configure($schema);

@@ -16,70 +16,82 @@ class PostForm
     {
         return $schema
             ->components([
-
-            Tabs::make('PostTabs')->tabs([
-                Tab::make('Content')->schema([
-                    Section::make()->columns(2)->schema([
-                        TextInput::make('title')
-                            ->required()
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(fn ($state, $set) => $set('slug', Str::slug($state))),
-                        TextInput::make('slug')
-                            ->required()
-                            ->unique(ignoreRecord: true),
-                        Textarea::make('excerpt')->rows(3)->columnSpanFull(),
-                        RichEditor::make('content')
-                            ->required()
-                            ->columnSpanFull(),
+                Tabs::make('PostTabs')->tabs([
+                    Tab::make('Konten')->schema([
+                        Section::make()->columns(1)->schema([
+                            TextInput::make('title')
+                                ->label('Judul')
+                                ->required()
+                                ->live(onBlur: true)
+                                ->afterStateUpdated(fn ($state, $set) => $set('slug', Str::slug($state))),
+                            TextInput::make('slug')
+                                ->label('Slug (kalimat unik)')
+                                ->required()
+                                ->unique(ignoreRecord: true),
+                            Textarea::make('excerpt')
+                                ->label('Kutipan')
+                                ->rows(3)
+                                ->columnSpanFull(),
+                            RichEditor::make('content')
+                                ->label('Konten')
+                                ->required()
+                                ->columnSpanFull()
+                                ->extraAttributes(['style' => 'min-height: 50vh;']),
+                        ])->columnSpanFull(),
                     ]),
-                ]),
-                Tab::make('Taxonomy')->schema([
-                    Section::make()->columns(2)->schema([
-                        Select::make('categories')
-                            ->relationship('categories', 'name')
-                            ->multiple()
-                            ->preload()
-                            ->searchable()
-                            ->label('Categories'),
-                        Select::make('tags')
-                            ->relationship('tags', 'name')
-                            ->multiple()
-                            ->preload()
-                            ->searchable()
-                            ->label('Tags'),
+                    Tab::make('Kategori & Tag')->schema([
+                        Section::make()->columns(1)->schema([
+                            Select::make('categories')
+                                ->label('Kategori')
+                                ->relationship('categories', 'name')
+                                ->multiple()
+                                ->preload()
+                                ->searchable(),
+                            Select::make('tags')
+                                ->label('Tag')
+                                ->relationship('tags', 'name')
+                                ->multiple()
+                                ->preload()
+                                ->searchable(),
+                        ])->columnSpanFull(),
                     ]),
-                ]),
-                Tab::make('Publishing')->schema([
-                    Section::make()->columns(2)->schema([
-                        Select::make('status')
-                            ->options([
-                                'draft' => 'Draft',
-                                'scheduled' => 'Scheduled',
-                                'published' => 'Published',
-                                'archived' => 'Archived',
-                            ])
-                            ->default('draft')
-                            ->required(),
-                        DateTimePicker::make('published_at')->seconds(false),
-                        Toggle::make('is_featured')->label('Featured'),
-                        TextInput::make('reading_time_minutes')
-                            ->numeric()
-                            ->minValue(1)
-                            ->helperText('Opsional; otomatis dihitung saat simpan jika kosong.'),
+                    Tab::make('Publikasi')->schema([
+                        Section::make()->columns(1)->schema([
+                            Select::make('status')
+                                ->label('Status')
+                                ->options([
+                                    'draft' => 'Draf',
+                                    'scheduled' => 'Dijadwalkan',
+                                    'published' => 'Terbit',
+                                    'archived' => 'Arsip',
+                                ])
+                                ->default('draft')
+                                ->required(),
+                            DateTimePicker::make('published_at')
+                                ->label('Tanggal Terbit')
+                                ->seconds(false),
+                            Toggle::make('is_featured')->label('Sorotan'),
+                            TextInput::make('reading_time_minutes')
+                                ->label('Perkiraan Waktu Baca (menit)')
+                                ->numeric()
+                                ->minValue(1)
+                                ->helperText('Opsional; otomatis dihitung saat simpan jika kosong.'),
+                        ])->columnSpanFull(),
                     ]),
-                ]),
-                Tab::make('Media / SEO')->schema([
-                    Section::make()->columns(2)->schema([
-                        FileUpload::make('cover_image_url')
-                            ->image()
-                            ->directory('post-covers')
-                            ->disk('public')
-                            ->visibility('public')
-                            ->label('Cover Image'),
-                        TextInput::make('canonical_url')->url()->label('Canonical URL'),
+                    Tab::make('Media & SEO')->schema([
+                        Section::make()->columns(1)->schema([
+                            FileUpload::make('cover_image_url')
+                                ->label('Gambar Sampul')
+                                ->image()
+                                ->directory('post-covers')
+                                ->disk('public')
+                                ->visibility('public'),
+                            TextInput::make('canonical_url')
+                                ->label('URL Kanonik')
+                                ->url(),
+                        ])->columnSpanFull(),
                     ]),
-                ]),
-            ]),
+                ])->columnSpanFull(),
             ]);
     }
 }

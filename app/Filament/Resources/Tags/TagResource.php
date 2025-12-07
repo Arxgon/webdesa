@@ -24,7 +24,11 @@ class TagResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Tag;
 
     protected static ?string $navigationLabel = 'Label';
+
+    protected static ?int $navigationSort = 4;
+
     protected static string | UnitEnum | null $navigationGroup = 'Manajemen Artikel';
+
     public static function form(Schema $schema): Schema
     {
         return TagForm::configure($schema);
