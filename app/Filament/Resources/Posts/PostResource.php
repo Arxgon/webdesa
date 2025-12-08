@@ -25,7 +25,9 @@ class PostResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentText;
 
-    protected static ?string $navigationLabel = 'Artikel';
+    protected static ?string $navigationLabel = 'Artikel/Post';
+
+    protected static ?int $navigationSort = 1;
 
     protected static string | UnitEnum | null $navigationGroup = 'Manajemen Artikel';
 
