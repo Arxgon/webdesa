@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
-<body class="bg-white text-slate-900">
+<body class="bg-[#f2f5f3] text-slate-900">
 
     @include('layouts.navbar')
 
