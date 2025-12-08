@@ -1,34 +1,13 @@
-<footer class="bg-[#0A332C] text-gray-300 mt-20 py-10">
-    <div class="container mx-auto grid md:grid-cols-3 gap-8 px-4">
-
-        <div>
-            <h3 class="text-white font-semibold mb-4">Ngarogretno</h3>
-            <p>Address: Ngarogretno Village, Magelang, Central Java</p>
-            <p>Email: info@ngarogretno.com</p>
-            <p>Phone: +62 812 3456 7890</p>
-        </div>
-
-        <div>
-            <h3 class="text-white font-semibold mb-4">Attractions</h3>
-            <ul class="space-y-2 text-sm">
-                <li>Honey Farm</li>
-                <li>Tea Plantation</li>
-                <li>Coffee Estate</li>
-                <li>Local Craft</li>
-            </ul>
-        </div>
-
-        <div>
-            <h3 class="text-white font-semibold mb-4">Events</h3>
-            <ul class="space-y-2 text-sm">
-                <li>NgaroFest</li>
-                <li>Workshops</li>
-                <li>Webinars</li>
-            </ul>
+<footer class="bg-[#0A332C] text-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
+        <p>© {{ date('Y') }} Pemerintah Desa. Semua hak dilindungi.</p>
+        <div class="flex gap-4 text-sm">
+            <a href="#profil" class="hover:text-white">Profil</a>
+            <a href="#layanan" class="hover:text-white">Layanan</a>
+            <a href="#program" class="hover:text-white">Program</a>
+            <a href="#kontak" class="hover:text-white">Kontak</a>
         </div>
     </div>
-
-    <div class="text-center text-sm text-gray-400 mt-8">© 2025 Ngarogretno — All Rights Reserved</div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>

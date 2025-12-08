@@ -5,10 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\VillageIdentityController;
+use App\Http\Controllers\LandingController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/history', [VillageIdentityController::class, 'history'])->name('history');
+Route::get('/profileArea', [VillageIdentityController::class, 'profileArea'])->name('profile-area');
+Route::get('/profilePotention', [VillageIdentityController::class, 'profilePotention'])->name('profile-potention');
+Route::get('/development', [VillageIdentityController::class, 'development'])->name('development');
+Route::get('/stall', [VillageIdentityController::class, 'stall'])->name('stall');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
