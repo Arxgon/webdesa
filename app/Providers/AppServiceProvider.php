@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Vite;
 use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Carbon::setLocale(config('app.locale'));
+
+        Vite::useManifestFilename('.vite/manifest.json');
 
     }
 }
