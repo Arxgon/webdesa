@@ -20,7 +20,7 @@
                     Unggulan</a>
             </div>
         </div>
-        <img src="{{ Vite::asset('resources/images/hero.jpg') }}" class="hero-img rounded-2xl shadow-lg w-full" />
+        <img src="{{ asset('/images/hero.jpg') }}" class="hero-img rounded-2xl shadow-lg w-full" />
     </div>
 </section>
 

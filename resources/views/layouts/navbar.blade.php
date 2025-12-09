@@ -3,7 +3,7 @@
 
         <!-- Logo -->
         <div class="flex items-center gap-2 text-xl font-semibold">
-            <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo" class="h-8" />
+            <img src="{{ asset('/images/logo.png') }}" alt="Logo" class="h-8" />
             {{ $identity->nama_desa ?? 'Desa' }}
         </div>
 
