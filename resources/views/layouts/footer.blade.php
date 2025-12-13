@@ -1,5 +1,5 @@
 <footer class="bg-[#0A332C] text-slate-200">
-    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
+    <div class="container mx-auto py-8 flex flex-col md:flex-row items-center justify-between">
         <p>© {{ date('Y') }} Pemerintah Desa. Semua hak dilindungi.</p>
         <div class="flex gap-4 text-sm">
             <a href="#profil" class="hover:text-white">Profil</a>
@@ -10,9 +10,55 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+const rows = Array.from(document.querySelectorAll('#anggaranTable tr'));
+const rowsPerPage = 5;
+let currentPage = 1;
+
+function renderTable() {
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    rows.forEach((row, index) => {
+        row.style.display = index >= start && index < end ? '' : 'none';
+    });
+
+    document.getElementById('pageInfo').innerText =
+        `Halaman ${currentPage} dari ${Math.ceil(rows.length / rowsPerPage)}`;
+}
+
+document.getElementById('prevPage').onclick = () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+    }
+};
+
+document.getElementById('nextPage').onclick = () => {
+    if (currentPage < Math.ceil(rows.length / rowsPerPage)) {
+        currentPage++;
+        renderTable();
+    }
+};
+
+renderTable();
+
+// SEARCH
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    const keyword = this.value.toLowerCase();
+
+    rows.forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(keyword) ?
+            '' :
+            'none';
+    });
+});
+</script>
 
 <script>
 AOS.init({

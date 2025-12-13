@@ -7,7 +7,7 @@
     <!-- <div
         class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_25%)]">
     </div> -->
-    <div class="mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
         <div data-aos="zoom-in">
             <h1 class="hero-title text-4xl md:text-5xl font-extrabold leading-tight">
                 {{ __('landing.hero_title') }}{{ $identity->nama_desa ?? 'Nama Desa' }}</h1>
@@ -20,7 +20,7 @@
                     Unggulan</a>
             </div>
         </div>
-        <img src="{{ asset('/images/hero.jpg') }}" class="hero-img rounded-2xl shadow-lg w-full" />
+        <img src="{{ asset('/images/hero.png') }}" class="hero-img rounded-2xl shadow-lg w-full" />
     </div>
 </section>
 
@@ -67,84 +67,188 @@
 </section>
 
 {{-- DATA DESA SECTION --}}
-<section id="data" class=" py-16" data-aos="fade-up">
+<section id="data" class="bg-white py-12 sm:py-16" data-aos="fade-up">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-4">Data Desa</h2>
-        <div class="grid md:grid-cols-2 gap-8">
 
-            {{-- LEFT SIDE – 4 DATA CARDS --}}
-            <div class="grid grid-cols-2 sm:grid-cols-2 gap-6">
+        <!-- Section Title -->
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-slate-900">
+            Data Desa
+        </h2>
 
-                {{-- Jumlah Penduduk --}}
-                <div class="rounded-2xl bg-white shadow-lg border border-slate-100 p-5">
+        <div class="grid lg:grid-cols-2 gap-8">
+
+            <!-- LEFT SIDE – DATA CARDS -->
+            <div class="grid grid-cols-2 gap-4 sm:gap-6">
+
+                <!-- CARD TEMPLATE -->
+                <div class="rounded-xl sm:rounded-2xl bg-white shadow-md border border-slate-100 p-4 sm:p-5">
                     <div class="mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-slate-600">
+                            stroke="currentColor" class="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-slate-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M18 20a6 6 0 00-12 0" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 11a4 4 0 100-8 4 4 0 000 8z" />
                         </svg>
                     </div>
-                    <h2 class="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2">Jumlah Penduduk</h2>
-                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600">4.820</p>
-                    <p class="text-xs sm:text-sm md:text-sm text-slate-500">Data per Oktober 2025</p>
+
+                    <h3 class="text-sm sm:text-base md:text-lg font-semibold text-slate-800 mb-1">
+                        Jumlah Penduduk
+                    </h3>
+
+                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 leading-tight">
+                        4.820
+                    </p>
+
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Data per Oktober 2025
+                    </p>
                 </div>
 
-                {{-- Kepala Keluarga --}}
-                <div class="rounded-2xl bg-white shadow-lg border border-slate-100 p-5">
+                <!-- DUPLIKASI POLA CARD DI BAWAH -->
+
+                <div class="rounded-xl sm:rounded-2xl bg-white shadow-md border border-slate-100 p-4 sm:p-5">
                     <div class="mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-slate-600">
+                            stroke="currentColor" class="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-slate-600">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M3 12l9-9 9 9M4.5 10.5V21h15V10.5" />
                         </svg>
                     </div>
-                    <h2 class="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2">Kepala Keluarga</h2>
-                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600">1.243</p>
-                    <p class="text-xs sm:text-sm md:text-sm text-slate-500">Data terupdate</p>
+
+                    <h3 class="text-sm sm:text-base md:text-lg font-semibold text-slate-800 mb-1">
+                        Kepala Keluarga
+                    </h3>
+
+                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 leading-tight">
+                        1.243
+                    </p>
+
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Data terupdate
+                    </p>
                 </div>
 
-                {{-- Luas Wilayah --}}
-                <div class="rounded-2xl bg-white shadow-lg border border-slate-100 p-5">
+                <div class="rounded-xl sm:rounded-2xl bg-white shadow-md border border-slate-100 p-4 sm:p-5">
                     <div class="mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-slate-600">
+                            stroke="currentColor" class="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-slate-600">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M3.75 6.75l6-3 6 3 6-3v12l-6 3-6-3-6 3v-12z" />
                         </svg>
                     </div>
-                    <h2 class="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2">Luas Wilayah</h2>
-                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600">12,3 km²</p>
-                    <p class="text-xs sm:text-sm md:text-sm text-slate-500">Meliputi 4 dusun & 8 RT</p>
+
+                    <h3 class="text-sm sm:text-base md:text-lg font-semibold text-slate-800 mb-1">
+                        Luas Wilayah
+                    </h3>
+
+                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 leading-tight">
+                        12,3 km²
+                    </p>
+
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        4 dusun & 8 RT
+                    </p>
                 </div>
 
-                {{-- Jumlah Program --}}
-                <div class="rounded-2xl bg-white shadow-lg border border-slate-100 p-5">
+                <div class="rounded-xl sm:rounded-2xl bg-white shadow-md border border-slate-100 p-4 sm:p-5">
                     <div class="mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-slate-600">
+                            stroke="currentColor" class="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-slate-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
                     </div>
-                    <h2 class="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2">Jumlah Program</h2>
-                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600">32</p>
-                    <p class="text-xs sm:text-sm md:text-sm text-slate-500">Program Desa</p>
+
+                    <h3 class="text-sm sm:text-base md:text-lg font-semibold text-slate-800 mb-1">
+                        Jumlah Program
+                    </h3>
+
+                    <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 leading-tight">
+                        32
+                    </p>
+
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Program Desa
+                    </p>
                 </div>
 
             </div>
 
-
-            {{-- RIGHT SIDE – GOOGLE MAPS --}}
-            <div class="rounded-2xl bg-white shadow-lg border border-slate-100 overflow-hidden">
-                <h2 class="text-lg font-semibold text-slate-900 p-4 pb-2">Lokasi Desa</h2>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.560814677484!2d114.70990597497083!3d-3.3454190966420616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de4226c4c32732d%3A0xc0cc721e868ba9dd!2sLiang%20Anggang%2C%20Kec.%20Bati-Bati%2C%20Kabupaten%20Tanah%20Laut%2C%20Kalimantan%20Selatan!5e0!3m2!1sid!2sid!4v1736162800000!5m2!1sid!2sid"
-                    class="w-full h-96 border-0" loading="lazy">
+            <!-- RIGHT SIDE – MAP -->
+            <div class="rounded-xl sm:rounded-2xl bg-white shadow-md border border-slate-100 overflow-hidden">
+                <h3 class="text-sm sm:text-base font-semibold text-slate-900 p-4">
+                    Lokasi Desa
+                </h3>
+                <iframe src="https://www.google.com/maps/embed?pb=..." class="w-full h-64 sm:h-80 md:h-96 border-0"
+                    loading="lazy">
                 </iframe>
             </div>
+        </div>
+        <!-- TRANSPARANSI ANGGARAN DESA -->
+        <div class="mt-16">
 
+            <!-- Title -->
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-slate-900">
+                Transparansi Anggaran Desa
+            </h2>
+
+            <!-- Search -->
+            <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <p class="text-sm text-slate-600">
+                    Data Anggaran dan Realisasi APBDes
+                </p>
+                <input type="text" id="searchInput" placeholder="Cari uraian / sumber dana..."
+                    class="w-full sm:w-64 px-4 py-2 border rounded-lg text-sm focus:ring focus:ring-orange-200">
+            </div>
+
+            <!-- Table Wrapper -->
+            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="min-w-full text-sm text-left">
+                    <thead class="bg-slate-100 text-slate-700">
+                        <tr>
+                            <th class="px-4 py-3 cursor-pointer">Kode</th>
+                            <th class="px-4 py-3 cursor-pointer">Uraian Kegiatan</th>
+                            <th class="px-4 py-3 cursor-pointer">Anggaran (Rp)</th>
+                            <th class="px-4 py-3 cursor-pointer">Realisasi (Rp)</th>
+                            <th class="px-4 py-3">Sumber Dana</th>
+                            <th class="px-4 py-3">Tahun</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="anggaranTable" class="divide-y bg-white">
+                        @foreach($anggaran as $item)
+                        <tr class="hover:bg-slate-50">
+                            <td class="px-4 py-3 font-medium">{{ $item['kode'] }}</td>
+                            <td class="px-4 py-3">{{ $item['uraian'] }}</td>
+                            <td class="px-4 py-3 text-right">
+                                {{ number_format($item['anggaran'],0,',','.') }}
+                            </td>
+                            <td class="px-4 py-3 text-right">
+                                {{ number_format($item['realisasi'],0,',','.') }}
+                            </td>
+                            <td class="px-4 py-3">{{ $item['sumber'] }}</td>
+                            <td class="px-4 py-3">{{ $item['tahun'] }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <!-- PAGINATION -->
+                <div class="flex justify-between items-center mt-4 p-4 text-sm">
+                    <p id="pageInfo" class="text-slate-600"></p>
+
+                    <div class="flex gap-2">
+                        <button id="prevPage" class="px-3 py-1 border rounded hover:bg-slate-100">
+                            Prev
+                        </button>
+                        <button id="nextPage" class="px-3 py-1 border rounded hover:bg-slate-100">
+                            Next
+                        </button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
+
 
 {{-- NEWS SECTION --}}
 <section id="news" data-aos="fade-up">
@@ -194,7 +298,7 @@
 </section>
 
 {{-- KONTAK DESA SECTION --}}
-<!-- <section id="kontak" data-aos="zoom-out">
+<section id="kontak" data-aos="zoom-out">
     <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-10 items-center">
             <div class="">
@@ -226,6 +330,6 @@
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
 @endsection

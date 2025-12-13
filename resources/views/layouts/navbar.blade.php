@@ -42,7 +42,7 @@
 
         <!-- Tombol Kontak Desktop -->
         <div class="hidden md:flex items-center gap-4">
-            <a href="#" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md text-sm">
+            <a href="#kontak" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md text-sm">
                 {{ __('navbar.contact') }}
             </a>
         </div>

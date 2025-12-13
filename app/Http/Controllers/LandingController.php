@@ -17,7 +17,7 @@ $news = [
     ],
     [
         'title' => 'Program Kebersihan Sungai Sungai Awang',
-        'img' => 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1200&q=80',
+        'img' => 'https://images.unsplash.com/photo-1470770903676-69b98201ea1c',
         'desc' => 'Warga bersama perangkat desa melaksanakan gotong-royong membersihkan bantaran sungai.'
     ],
     [
@@ -55,7 +55,26 @@ $photos = [
     ],
 ];
 
-return view('landing.index', compact('news', 'photos'));
+$anggaran = [
+    [
+        'kode' => '1.01',
+        'uraian' => 'Penyelenggaraan Pemerintahan Desa',
+        'anggaran' => 350000000,
+        'realisasi' => 325000000,
+        'sumber' => 'Dana Desa',
+        'tahun' => 2025
+    ],
+    [
+        'kode' => '1.02',
+        'uraian' => 'Pembangunan Infrastruktur Desa',
+        'anggaran' => 500000000,
+        'realisasi' => 470000000,
+        'sumber' => 'APBDes',
+        'tahun' => 2025
+    ],
+];
+
+return view('landing.index', compact('news', 'photos', 'anggaran'));
 }
 }
 ?>
