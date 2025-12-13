@@ -35,9 +35,9 @@
                 </ul>
             </li>
 
-            <li><a href="#data" class="hover:text-orange-400">{{ __('navbar.data') }}</a></li>
-            <li><a href="#news" class="hover:text-orange-400">{{ __('navbar.news') }}</a></li>
-            <li><a href="#photos" class="hover:text-orange-400">{{ __('navbar.gallery') }}</a></li>
+            <li><a href="{{ route('data') }}" class="hover:text-orange-400">{{ __('navbar.data') }}</a></li>
+            <li><a href="{{ route('news') }}" class="hover:text-orange-400">{{ __('navbar.news') }}</a></li>
+            <li><a href="{{ route('photos') }}" class="hover:text-orange-400">{{ __('navbar.gallery') }}</a></li>
         </ul>
 
         <!-- Tombol Kontak Desktop -->
@@ -104,9 +104,9 @@
                     </ul>
                 </li>
 
-                <li><a href="#data" class="block px-4 py-2 hover:bg-gray-700 rounded">Data Desa</a></li>
-                <li><a href="#news" class="block px-4 py-2 hover:bg-gray-700 rounded">Berita</a></li>
-                <li><a href="#photos" class="block px-4 py-2 hover:bg-gray-700 rounded">Galeri</a></li>
+                <li><a href="{{ route('data') }}" class="block px-4 py-2 hover:bg-gray-700 rounded">Data Desa</a></li>
+                <li><a href="{{ route('news') }}" class="block px-4 py-2 hover:bg-gray-700 rounded">Berita</a></li>
+                <li><a href="{{ route('photos') }}" class="block px-4 py-2 hover:bg-gray-700 rounded">Galeri</a></li>
                 <li class="p-6"><a href="#"
                         class="block px-4 py-2 hover:bg-orange-600 bg-orange-500 rounded text-white text-center">Kontak</a>
                 </li>

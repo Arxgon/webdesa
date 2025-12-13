@@ -74,6 +74,7 @@ $anggaran = [
     ],
 ];
 
+
 return view('landing.index', compact('news', 'photos', 'anggaran'));
 }
 }

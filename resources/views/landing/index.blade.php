@@ -71,9 +71,12 @@
     <div class="container mx-auto px-4">
 
         <!-- Section Title -->
-        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-slate-900">
-            Data Desa
-        </h2>
+         <div class="container mx-auto py-8 flex flex-col md:flex-row items-center justify-between">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-slate-900">
+                Data Desa
+            </h2>
+            <a href="{{ route('data') }}" class="text-green-700 font-semibold hover:underline"><h1>Lihat Detail Data Desa</h1></a>
+        </div>
 
         <div class="grid lg:grid-cols-2 gap-8">
 

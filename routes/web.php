@@ -13,6 +13,9 @@ Route::get('/profileArea', [VillageIdentityController::class, 'profileArea'])->n
 Route::get('/profilePotention', [VillageIdentityController::class, 'profilePotention'])->name('profile-potention');
 Route::get('/development', [VillageIdentityController::class, 'development'])->name('development');
 Route::get('/stall', [VillageIdentityController::class, 'stall'])->name('stall');
+Route::get('/data', [VillageIdentityController::class, 'data'])->name('data');
+Route::get('/news', [VillageIdentityController::class, 'news'])->name('news');
+Route::get('/photos', [VillageIdentityController::class, 'photos'])->name('photos');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
